@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB</title>
+    <script src="{{ url_for('static', filename='scripts/100-hbnb.js') }}"></script>
+</head>
+<body>
+    <ul>
+        {% for state, cities in st_ct %}
+            <li>
+                <input type="checkbox" data-id="{{ state.id }}" data-name="{{ state.name }}">
+                {{ state.name }}
+                <ul>
+                    {% for city in cities %}
+                        <li>
+                            <input type="checkbox" data-id="{{ city.id }}" data-name="{{ city.name }}">
+                            {{ city.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
